@@ -27,7 +27,7 @@ for (const image of images) {
   newImage.addEventListener("click", updateDisplayedImage);
 
   newImage.addEventListener("keydown", (event) => {
-    if (e.code === "Enter") {
+    if (event.code === "Enter") {
       updateDisplayedImage(event);
     }
   });
