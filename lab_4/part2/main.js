@@ -20,7 +20,7 @@ function updateDisplayedImage(filename, altText){
 }
 
 btn.addEventListener('click',() => {
-    if(btn.classList.contains('light')){
+    if(btn.classList.contains('dark')){
         btn.classList.remove('light')
         btn.classList.add('dark')
         btn.textContent = 'Lighten';
