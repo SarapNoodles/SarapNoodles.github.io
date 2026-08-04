@@ -3,6 +3,7 @@ const thumbBar = document.querySelector(".thumb-bar");
 
 const btn = document.querySelector("button");
 const overlay = document.querySelector(".overlay");
+const baseURL = 'images/'; 
 
 const images= [
     { filename: 'pic1.jpg', alt: 'Close-up of a human eye'},
@@ -12,4 +13,18 @@ const images= [
     { filename: 'pic5.jpg', alt: 'Large moth on a leaf'},
     ];
 
+for (const image of images){
+    const newImage = document.createElement('img');
+    newImage.src = baseUrl + image.filename;
+    newImage.alt = image.alt;
+
+    //append to thumbnail bar
+    newImage.setAttribute('tabindex','0');
+    thumbBar.appendChild(newImage);
+
+    //updates displayed image every click
+    newImage.addEventListener('click',() => {updateDisplayedImage(image.filename,image.alt);});
+
+
+}
 
