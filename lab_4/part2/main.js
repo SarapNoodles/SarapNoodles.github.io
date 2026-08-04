@@ -14,42 +14,40 @@ const images= [
 
 const baseURL = 'images/'; 
 
+
+for (const image of images){
+    const newImage = document.createElement('img');
+    newImage.src = baseURL + image.filename;
+    newImage.alt = image.alt;
+    newImage.tabIndex = "0"
+    //append to thumbnail bar
+    thumbBar.appendChild(newImage);
+
+    //updates displayed image every click
+    newImage.addEventListener('click', updateDisplayedImage );
+
+    newImage.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter'){
+            updateDisplayedImage(event)
+        }
+    });
+
 function updateDisplayedImage(filename, altText){
     displayedImage.src = `${baseURL}${filename}`;
     displayedImage.alt = altText;
 }
 
 btn.addEventListener('click',() => {
-    if(btn.classList.contains('dark')){
-        btn.classList.remove('light')
-        btn.classList.add('dark')
+    if(btn.classList.contains('light')){
         btn.textContent = 'Lighten';
         overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
     }else{
-        btn.classList.remove('dark')
-        btn.classList.add('light')
         btn.textContent = 'Darken';
         overlay.style.backgroundColor = 'rgba(0,0,0,0)';
     }
+
+    btn.classList.toggle("dark")
 })
-
-for (const image of images){
-    const newImage = document.createElement('img');
-    newImage.src = baseURL + image.filename;
-    newImage.alt = image.alt;
-
-    //append to thumbnail bar
-    newImage.setAttribute('tabindex','0');
-    thumbBar.appendChild(newImage);
-
-    //updates displayed image every click
-    newImage.addEventListener('click',() => {updateDisplayedImage(image.filename,image.alt);});
-
-    newImage.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter'){
-            updateDisplayedImage(image.filename, image.alt)
-        }
-    });
 
 }
 
