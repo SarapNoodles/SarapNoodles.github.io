@@ -4,13 +4,12 @@ const thumbBar = document.querySelector(".thumb-bar");
 const btn = document.querySelector("button");
 const overlay = document.querySelector(".overlay");
 
-const imageList = ['pic1.jpg','pic2.jpg','pic3.jpg','pic4.jpg','pic5.jpg'];
+const images= [
+    { filename: 'pic1.jpg', alt: 'Close-up of a human eye'},
+    { filename: 'pic2.jpg', alt: 'Rock that looks like a wave'},
+    { filename: 'pic3.jpg', alt: 'Purple and white pansies'},
+    { filename: 'pic4.jpg', alt: 'Section of wall from a pharohs tomb'},
+    { filename: 'pic5.jpg', alt: 'Large moth on a leaf'},
+    ];
 
-imageList.forEach(imageFile => {
-    const newImage = document.createElement('img');
 
-    newImage.src = 'images/${imageFile}';
-    thumbBar.appendChild(newImage);
-
-    newImage.addEventListener('click', () => {displayedImage.src = newImage.src;});
-});
