@@ -14,6 +14,10 @@ const images= [
 
 const baseURL = 'images/'; 
 
+function updateDisplayedImage(filename, altText){
+    displayedImage.src = `${baseURL}${filename}`;
+    displayedImage.alt = altText;
+}
 
 for (const image of images){
     const newImage = document.createElement('img');
@@ -28,25 +32,26 @@ for (const image of images){
 
     newImage.addEventListener('keydown', (event) => {
         if (event.key === 'Enter'){
-            updateDisplayedImage(event)
+            updateDisplayedImage(event);
         }
     });
 
-function updateDisplayedImage(filename, altText){
-    displayedImage.src = `${baseURL}${filename}`;
-    displayedImage.alt = altText;
-}
+
 
 btn.addEventListener('click',() => {
     if(btn.classList.contains('light')){
+        btn.classList.contains('light');
+        btn.classList.remove('dark');
         btn.textContent = 'Lighten';
         overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
     }else{
+        btn.classList.contains('dark');
+        btn.classList.remove('light');
         btn.textContent = 'Darken';
         overlay.style.backgroundColor = 'rgba(0,0,0,0)';
     }
 
-    btn.classList.toggle("dark")
+    btn.classList.toggle("light");
 })
 
 }
