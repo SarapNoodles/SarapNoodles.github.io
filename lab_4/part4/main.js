@@ -20,6 +20,7 @@ class Ball {
     this.velY = velY;
     this.color = color;
     this.size = size;
+    this.exists = true;
   }
 
   draw() {
@@ -54,6 +55,50 @@ class Ball {
   }
 }
 
+class EvilCircle extends Ball {
+  constructor(x, y) {
+    super(x, y, 20, 20, "white", 20);   // reuse Ball constructor
+  }
+
+  draw() {
+    ctx.beginPath();
+    ctx.strokeStyle = this.color;
+    ctx.lineWidth = 3;
+    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.stroke();
+  }
+
+  checkBounds() {
+    if (this.x + this.size >= width) this.x = width - this.size;
+    if (this.x - this.size <= 0) this.x = this.size;
+    if (this.y + this.size >= height) this.y = height - this.size;
+    if (this.y - this.size <= 0) this.y = this.size;
+  }
+
+  setControls() {
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "a") this.x -= this.velX;
+      if (e.key === "d") this.x += this.velX;
+      if (e.key === "w") this.y -= this.velY;
+      if (e.key === "s") this.y += this.velY;
+    });
+  }
+
+  collisionDetect() {
+    for (const ball of balls) {
+      if (ball.exists) {
+        const dx = this.x - ball.x;
+        const dy = this.y - ball.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < this.size + ball.size) {
+          ball.exists = false;   // MDN requirement
+        }
+      }
+    }
+  }
+}
+
 const testBall = new Ball(50, 100, 4, 4, "blue", 10);
 
 testBall.x;
@@ -62,6 +107,9 @@ testBall.color;
 testBall.draw();
 
 const balls = [];
+
+const evil = new EvilCircle(100, 100);
+evil.setControls();
 
 while (balls.length < 25) {
   const size = random(10, 20);
@@ -84,10 +132,16 @@ function loop() {
   ctx.fillRect(0, 0, width, height);
 
   for (const ball of balls) {
-    ball.draw();
-    ball.update();
-    ball.collisionDetect();
+    if (ball.exists) {
+      ball.draw();
+      ball.update();
+      ball.collisionDetect();
+    }
   }
+
+  evil.draw();
+  evil.checkBounds();
+  evil.collisionDetect();
 
   requestAnimationFrame(loop);
 }
