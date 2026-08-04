@@ -20,7 +20,7 @@ class Ball {
     this.velY = velY;
     this.color = color;
     this.size = size;
-    this.exists = true;
+    this.exists = true; // REQUIRED for MDN evil circle
   }
 
   draw() {
@@ -42,13 +42,13 @@ class Ball {
 
   collisionDetect() {
     for (const ball of balls) {
-      if (!(this === ball) && ball.exists) {
+      if (this !== ball && ball.exists) {
         const dx = this.x - ball.x;
         const dy = this.y - ball.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < this.size + ball.size) {
-          ball.color = this.color = randomRGB();
+          this.color = ball.color = randomRGB();
         }
       }
     }
@@ -57,7 +57,7 @@ class Ball {
 
 class EvilCircle extends Ball {
   constructor(x, y) {
-    super(x, y, 20, 20, "white", 20);   // reuse Ball constructor
+    super(x, y, 20, 20, "white", 20);
   }
 
   draw() {
@@ -92,40 +92,31 @@ class EvilCircle extends Ball {
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < this.size + ball.size) {
-          ball.exists = false;   // MDN requirement
+          ball.exists = false; // MDN requirement
         }
       }
     }
   }
 }
 
-const testBall = new Ball(50, 100, 4, 4, "blue", 10);
-
-testBall.x;
-testBall.size;
-testBall.color;
-testBall.draw();
-
 const balls = [];
-
-const evil = new EvilCircle(100, 100);
-evil.setControls();
 
 while (balls.length < 25) {
   const size = random(10, 20);
   const ball = new Ball(
-    // ball position always drawn at least one ball width
-    // away from the edge of the canvas, to avoid drawing errors
-    random(0 + size, width - size),
-    random(0 + size, height - size),
+    random(size, width - size),
+    random(size, height - size),
     random(-7, 7),
     random(-7, 7),
     randomRGB(),
-    size,
+    size
   );
 
   balls.push(ball);
 }
+
+const evil = new EvilCircle(100, 100);
+evil.setControls();
 
 function loop() {
   ctx.fillStyle = "rgb(0 0 0 / 25%)";
