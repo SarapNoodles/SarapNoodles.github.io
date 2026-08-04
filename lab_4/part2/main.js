@@ -13,7 +13,7 @@ const images = [
 ];
 
 
-const baseURL = "/images";
+const baseURL = "images/";
 
 
 for (const image of images) {
@@ -26,9 +26,9 @@ for (const image of images) {
   thumbBar.appendChild(newImage);
   newImage.addEventListener("click", updateDisplayedImage);
 
-  newImage.addEventListener("keydown", (e) => {
+  newImage.addEventListener("keydown", (event) => {
     if (e.code === "Enter") {
-      updateDisplayedImage(e);
+      updateDisplayedImage(event);
     }
   });
 }
