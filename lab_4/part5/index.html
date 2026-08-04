@@ -20,130 +20,140 @@
     --
 
     <form>
-        <fieldset>
-            <h2>Facilities</h2>
-            <div class ="form-section">
+
+      <h2>Facilities</h2>
+      <div class="form-section">
+
+        <fieldset class="separator">
+          <legend>Was the porridge</legend>
+
+          <label class="separator">
+            <input type="radio" name="porridge" value="hot" checked>
+            Too hot?
+          </label>
+
+          <label class="separator">
+            <input type="radio" name="porridge" value="cold">
+            Too cold?
+          </label>
+
+          <label class="separator">
+            <input type="radio" name="porridge" value="right">
+            Just right?
+          </label>
+        </fieldset>
+
+
+        <fieldset class="separator">
+          <legend>Were the beds</legend>
+
+          <label class="separator">
+            <input type="radio" name="beds" value="hard" checked>
+            Too hard?
+          </label>
+
+          <label class="separator">
+            <input type="radio" name="beds" value="soft">
+            Too soft?
+          </label>
+
+          <label class="separator">
+            <input type="radio" name="beds" value="right">
+            Just right?
+          </label>
+        </fieldset>
+
+       
+        <fieldset class="separator">
+          <legend>Describe the chairs (select all you agree with)</legend>
+
+          <label class="separator">
+            <input type="checkbox" name="chairs" value="comfy">
+            Comfy
+          </label>
+
+          <label class="separator">
+            <input type="checkbox" name="chairs" value="luxurious">
+            Luxurious
+          </label>
+
+          <label class="separator">
+            <input type="checkbox" name="chairs" value="hitech">
+            Hi-tech
+          </label>
+
+          <label class="separator">
+            <input type="checkbox" name="chairs" value="pretty">
+            Pretty
+          </label>
+
+          <label class="separator">
+            <input type="checkbox" name="chairs" value="majestic">
+            Majestic
+          </label>
+        </fieldset>
+
+      </div>
+
+      <h2>About your hosts</h2>
+      <div class="form-section">
+
+        <div class="separator">
+          <label for="favorite-bear">Who's your favorite bear?</label>
+          <select id="favorite-bear" name="favorite_bear">
+            <option value="papa">Papa bear</option>
+            <option value="mama">Mama bear</option>
+            <option value="junior">Junior</option>
+            <option value="dozer">Dozer</option>
+          </select>
+        </div>
+
+        <div class="separator">
+          <label for="greeting">Which greeting did you prefer?</label>
+          <select id="greeting" name="greeting">
+            <option value="wave">Wave</option>
+            <option value="friendly">Friendly greeting</option>
+            <option value="growl">Growl</option>
+            <option value="claw">Claw marks in the door</option>
+          </select>
+        </div>
+
+      </div>
+
+      <h2>Any other feedback?</h2>
+      <div class="form-section">
+
+        <label class="separator" for="comments">Give us your comments</label>
+        <br>
+        <textarea id="comments" name="comments" rows="6"></textarea>
+
+      </div>
     
-        <fieldset class="seperator">
-            <legend>Was the porridge</legend>
-            
-            <label class="separator">
-                <input type="radio" name="porridge" value="hot" checked>
-                Too hot?
-            </label>
+      <h2>Your details</h2>
+      <div class="form-section">
 
-            <label class="separator">
-                <input type="radio" name="porridge" value="cold">
-                Too cold?
-            </label>
+        <div class="separator">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name">
+        </div>
 
-            <label class="separator">
-                <input type="radio" name="porridge" value="right">
-                Just right?
-            </label>
-        </fieldset>
+        <div class="separator">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email">
+        </div>
 
-        <fieldset class="seperator">
-            <legend>Were the beds</legend>
-            
-            <label class="separator">
-                <input type="radio" name="beds" value="hard" checked>
-                Too hard?
-            </label>
+        <div class="separator">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
 
-            <label class="separator">
-                <input type="radio" name="beds" value="soft" >
-                Too soft?
-            </label>
+      </div>
 
-            <label class="separator">
-                <input type="radio" name="beds" value="right">
-                Just right?
-            </label>
-        </fieldset>
+      <div class="form-section">
+        <button type="submit">Submit</button>
+      </div>
 
-        <fieldset class="seperator">
-            <legend>Describe the chairs (select all you agree with)</legend>
-            
-            <label class="separator">
-                <input type="checkbox" name="chairs" value="comfy" checked>
-                Comfy
-            </label>
-
-            <label class="separator">
-                <input type="checkbox" name="chairs" value="luxurious" checked>
-                Luxurious
-            </label>
-
-            <label class="separator">
-                <input type="checkbox" name="chairs" value="hitech" checked>
-                Hi-tech
-            </label>
-
-            <label class="separator">
-                <input type="checkbox" name="chairs" value="pretty" checked>
-                Pretty
-            </label>
-
-            <label class="separator">
-                <input type="checkbox" name="chairs" value="majestic" checked>
-                Majestic
-            </label>
-        </fieldset>
     </form>
-    </div>
-    
 
-    Too hot?
-    Too cold?
-    Just right?
-
-    Were the beds
-    Too hard?
-    Too soft?
-    Just right?
-
-    Describe the chairs (select all you agree with)
-    Comfy
-    Luxurious
-    Hi-tech
-    Pretty
-    Majestic
-
-    --
-
-    About your hosts
-
-    Who's your favorite bear?
-    Papa bear
-    Mama bear
-    Junior
-    Dozer
-
-    Which greeting did you prefer?
-    Wave
-    Friendly greeting
-    Growl
-    Claw marks in the door
-
-    --
-
-    Any other feedback?
-
-    Give us your comments
-
-    --
-
-    Your details
-
-    Name
-    Email
-    Phone
-
-    --
-
-    Submit
-
-    --
   </body>
 </html>
