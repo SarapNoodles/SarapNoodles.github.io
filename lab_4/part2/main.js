@@ -14,9 +14,8 @@ const images= [
 
 const baseURL = 'images/'; 
 
-const displayedImage = document.quereySelector('.displayed-img')
 function updateDisplayedImage(filename, altText){
-    displayedImage.src = 'images/${filename}';
+    displayedImage.src = `images/${filename}`;
     displayedImage.alt = altText;
 }
 
@@ -25,12 +24,12 @@ btn.addEventListener('click',() => {
         btn.classList.remove('light')
         btn.classList.add('dark')
         btn.textContent = 'Lighten';
-        overlay.computedStyleMap.backgroundColor = 'rgba(0,0,0,0.5)';
+        overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
     }else{
         btn.classList.remove('dark')
         btn.classList.add('light')
         btn.textContent = 'Darken';
-        overlay.computedStyleMap.backgroundColor = 'rgba(0,0,0,0)';
+        overlay.style.backgroundColor = 'rgba(0,0,0,0)';
     }
 })
 
