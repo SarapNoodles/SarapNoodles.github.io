@@ -19,6 +19,21 @@ function updateDisplayedImage(filename, altText){
     displayedImage.alt = altText;
 }
 
+btn.addEventListener('click',() => {
+    if(btn.classList.contains('light')){
+        btn.classList.contains('light');
+        btn.classList.remove('dark');
+        btn.textContent = 'Lighten';
+        overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
+    }else{
+        btn.classList.contains('dark');
+        btn.classList.remove('light');
+        btn.textContent = 'Darken';
+        overlay.style.backgroundColor = 'rgba(0,0,0,0)';
+    }
+    btn.classList.toggle("light");
+});
+
 for (const image of images){
     const newImage = document.createElement('img');
     newImage.src = baseURL + image.filename;
@@ -35,24 +50,6 @@ for (const image of images){
             updateDisplayedImage(event);
         }
     });
-
-
-
-btn.addEventListener('click',() => {
-    if(btn.classList.contains('light')){
-        btn.classList.contains('light');
-        btn.classList.remove('dark');
-        btn.textContent = 'Lighten';
-        overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
-    }else{
-        btn.classList.contains('dark');
-        btn.classList.remove('light');
-        btn.textContent = 'Darken';
-        overlay.style.backgroundColor = 'rgba(0,0,0,0)';
-    }
-
-    btn.classList.toggle("light");
-})
 
 }
 
