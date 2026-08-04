@@ -31,7 +31,6 @@ btn.addEventListener('click',() => {
         btn.textContent = 'Darken';
         overlay.style.backgroundColor = 'rgba(0,0,0,0)';
     }
-    btn.classList.toggle("light");
 });
 
 for (const image of images){
