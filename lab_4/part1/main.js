@@ -38,6 +38,9 @@ function returnRandomStoryString() {
 generateBtn.addEventListener("click", generateStory);
 
 function generateStory() {
+
+  let newStory = returnRandomStoryString(); 
+
   if (customName.value !== "") {
     const name = customName.value;
     newStory = newStory.replace("Bob",name);
@@ -46,6 +49,7 @@ function generateStory() {
   if (document.getElementById("uk").checked) {
     const weight = Math.round(300);
     const temperature = Math.round(94);
+    
     newStory = newStory.replace("300 pounds", weight);
     newStory = newStory.replace("94 Fahrenheit", temperature);
   }
