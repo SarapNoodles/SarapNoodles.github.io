@@ -15,7 +15,7 @@ const images= [
 const baseURL = 'images/'; 
 
 function updateDisplayedImage(filename, altText){
-    displayedImage.src = `images/${filename}`;
+    displayedImage.src = `${baseURL}${filename}`;
     displayedImage.alt = altText;
 }
 
@@ -35,7 +35,7 @@ btn.addEventListener('click',() => {
 
 for (const image of images){
     const newImage = document.createElement('img');
-    newImage.src = baseUrl + image.filename;
+    newImage.src = baseURL + image.filename;
     newImage.alt = image.alt;
 
     //append to thumbnail bar
