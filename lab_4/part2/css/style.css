@@ -1,51 +1,58 @@
-    body {
-      padding-bottom: 400px;
-      margin: 0;
-      font-family: sans-serif;
-    }
+body {
+  font-family: sans-serif;
+  width: 640px;
+  margin: 0 auto;
+  background-color: lightgray;
+}
 
-    h1 {
-      text-align: center;
-      margin-top: 20px;
-    }
+h1 {
+  text-align: center;
+}
 
-    .full-img {
-      width: 80%;
-      margin: 20px auto;
-      position: relative;
-    }
+.full-img {
+  position: relative;
+  display: block;
+  width: 640px;
+  height: 480px;
+  margin-bottom: 2px;
+}
 
-    .displayed-img {
-      width: 100%;
-      display: block;
-    }
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 640px;
+  height: 480px;
+}
 
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0);
-    }
+button {
+  background: rgb(150 150 150 / 0.6);
+  border: 1px solid #999999;
+  position: absolute;
+  cursor: pointer;
+  top: 2px;
+  left: 2px;
+}
 
-    button {
-      display: block;
-      margin: 10px auto;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
+button:hover,
+button:focus {
+  color: rgb(150 150 150 / 1);
+  background-color: black;
+}
 
-    .thumb-bar {
-      width: 80%;
-      margin: 20px auto;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
+.thumb-bar {
+  display: flex;
+  gap: 2px;
+  cursor: pointer;
+}
 
-    .thumb-bar img {
-      width: 150px;
-      cursor: pointer;
-    }
+.thumb-bar img {
+  display: block;
+  width: 100px;
+  flex: 1;
+}
+
+.thumb-bar img:hover,
+.thumb-bar img:focus {
+  outline: 2px solid blue;
+}
