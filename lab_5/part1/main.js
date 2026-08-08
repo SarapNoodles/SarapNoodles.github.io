@@ -49,6 +49,8 @@ function toggleComments() {
   }
 }
 
+showHideBtn.addEventListener('click', toggleComments);
+
 form.addEventListener('submit', function (e) {
   e.preventDefault();
 
