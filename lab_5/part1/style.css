@@ -49,9 +49,21 @@ p, li, table {
   line-height: 1.5;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* || header layout */
 
-div[class="nav"], article, footer, .secondary {
+nav, article, footer, .secondary {
   background-color: rgb(164, 236, 230);
 }
 
@@ -63,28 +75,28 @@ article {
   margin-right: 10px;
 }
 
-div[class="nav"] {
+nav {
   height: 50px;
-  background-color: ff80ff;
+  background-color: #ff80ff;
   display: flex;
   padding: 1% 0;
   margin-bottom: 10px;
 }
 
-div[class="nav"] ul {
+nav ul {
   padding: 0;
   list-style-type: none;
   flex: 2;
   display: flex;
 }
 
-div[class="nav"] li {
+nav li {
   display: inline;
   text-align: center;
   flex: 1;
 }
 
-div[class="nav"] a {
+nav a {
   display: inline-block;
   font-size: 2rem;
   text-transform: uppercase;
@@ -92,7 +104,7 @@ div[class="nav"] a {
   color: black;
 }
 
-div[class="nav"] .search {
+nav .search {
   flex: 1;
   display: flex;
   align-items: center;
@@ -209,23 +221,28 @@ audio {
   flex: 6;
 }
 
-.show-hide {
+button.show-hide {
+  display: inline-block;
   text-align: center;
   width: 150px;
-}
-
-.comment-form input, .comment-form label, .show-hide {
+  cursor: pointer;
   font-size: 1.6rem;
   line-height: 32px;
-}
-
-.comment-form input[type="submit"], .show-hide {
   background: #333;
   border: 0;
-  color: white;
+  color: #fff;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
 }
 
+/* submit button styling kept separate */
 .comment-form input[type="submit"] {
+  background: #333;
+  border: 0;
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 32px;
+  padding: 0.6rem 1rem;
   width: 30%;
   display: block;
   margin: 0 auto;
