@@ -2,14 +2,20 @@
 
 const showHideBtn = document.querySelector('.show-hide');
 const commentWrapper = document.querySelector('#comment-wrapper');
+const form = document.querySelector('.comment-form');
+const nameField = document.querySelector('#name');
+const commentField = document.querySelector('#comment');
+const list = document.querySelector('.comment-container');
+
 
 commentWrapper.style.display = 'none';
 showHideBtn.setAttribute('aria-expanded', 'false');
 
 // functionality for showing/hiding the comments section
 showHideBtn.addEventListener('click', toggleComments);
-showHideBtn.addEventListener('keydown', function(e) {
-  if (e.key === 'Enter' || e.key === ' ') {
+showHideBtn.addEventListener('keydown', function (e) {
+  if (e.key === ' ' || e.key === 'Enter') {
+    // Prevent double-activation in some browsers
     e.preventDefault();
     toggleComments();
   }
@@ -33,17 +39,15 @@ function toggleComments() {
     showHideBtn.textContent = 'Hide comments';
     showHideBtn.setAttribute('aria-expanded', 'true');
     commentWrapper.style.display = 'block';
+    nameField.focus();
   } else {
     showHideBtn.textContent = 'Show comments';
     showHideBtn.setAttribute('aria-expanded', 'false');
     commentWrapper.style.display = 'none';
+    // return focus to the toggle button
+    showHideBtn.focus();
   }
 }
-
-const form = document.querySelector('.comment-form');
-const nameField = document.querySelector('#name');
-const commentField = document.querySelector('#comment');
-const list = document.querySelector('.comment-container');
 
 form.onsubmit = function(e) {
   e.preventDefault();
