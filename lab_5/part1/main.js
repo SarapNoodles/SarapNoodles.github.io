@@ -1,9 +1,19 @@
 // functionality for showing/hiding the comments section
 
 const showHideBtn = document.querySelector('.show-hide');
-const commentWrapper = document.querySelector('.comment-wrapper');
+const commentWrapper = document.querySelector('#comment-wrapper');
 
 commentWrapper.style.display = 'none';
+showHideBtn.setAttribute('aria-expanded', 'false');
+
+// functionality for showing/hiding the comments section
+showHideBtn.addEventListener('click', toggleComments);
+showHideBtn.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    toggleComments();
+  }
+});
 
 showHideBtn.onclick = function() {
   let showHideText = showHideBtn.textContent;
@@ -17,6 +27,19 @@ showHideBtn.onclick = function() {
 };
 
 // functionality for adding a new comment via the comments form
+function toggleComments() {
+  const expanded = showHideBtn.getAttribute('aria-expanded') === 'true';
+  if (!expanded) {
+    showHideBtn.textContent = 'Hide comments';
+    showHideBtn.setAttribute('aria-expanded', 'true');
+    commentWrapper.style.display = 'block';
+  } else {
+    showHideBtn.textContent = 'Show comments';
+    showHideBtn.setAttribute('aria-expanded', 'false');
+    commentWrapper.style.display = 'none';
+  }
+}
+
 
 const form = document.querySelector('.comment-form');
 const nameField = document.querySelector('#name');
