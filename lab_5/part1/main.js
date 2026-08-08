@@ -49,25 +49,33 @@ function toggleComments() {
   }
 }
 
-form.onsubmit = function(e) {
+form.addEventListener('submit', function (e) {
   e.preventDefault();
-  submitComment();
-};
 
-function submitComment() {
+  const nameValue = nameField.value.trim();
+  const commentValue = commentField.value.trim();
+
+  if (!nameValue || !commentValue) {
+    // For the assignment an alert is acceptable; for production use inline error with role="alert"
+    alert('Please enter both your name and a comment.');
+    if (!nameValue) nameField.focus();
+    else commentField.focus();
+    return;
+  }
+
   const listItem = document.createElement('li');
   const namePara = document.createElement('p');
   const commentPara = document.createElement('p');
-  const nameValue = nameField.value;
-  const commentValue = commentField.value;
 
   namePara.textContent = nameValue;
   commentPara.textContent = commentValue;
-
+  namePara.style.fontWeight = 'bold';
+  
   list.appendChild(listItem);
   listItem.appendChild(namePara);
   listItem.appendChild(commentPara);
 
   nameField.value = '';
   commentField.value = '';
-}
+  nameField.focus();
+});
