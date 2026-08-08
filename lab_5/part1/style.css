@@ -16,6 +16,12 @@ body {
   margin: 0 auto;
 }
 
+:focus-visible {
+  outline: 3px solid #05fc05;
+  outline-offset: 2px;
+}
+
+
 /* || typography */
 
 h1, h2, h3, h4 {

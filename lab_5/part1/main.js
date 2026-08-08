@@ -40,7 +40,6 @@ function toggleComments() {
   }
 }
 
-
 const form = document.querySelector('.comment-form');
 const nameField = document.querySelector('#name');
 const commentField = document.querySelector('#comment');
